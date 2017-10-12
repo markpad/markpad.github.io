@@ -2,10 +2,18 @@
     <head>
         <title>Markpad</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+        <script type="text/javascript">
+          (function(){
+            var redirect = sessionStorage.redirect;
+            delete sessionStorage.redirect;
+            if (redirect && redirect !== location.href) {
+              history.replaceState(null, null, redirect);
+            }
+          })();
+        </script>
     </head>
     <body>
         <textarea data-selector="simplemde-textarea"></textarea>
     </body>
-
     <script src="https://unpkg.com/markpad@0.4.1/dist/markpad.js" type="text/javascript"></script>
 </html>
